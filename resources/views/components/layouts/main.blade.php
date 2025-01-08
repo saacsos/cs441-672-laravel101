@@ -10,7 +10,10 @@
 
 <x-layouts.nav-bar></x-layouts.nav-bar>
 
-{{ $slot }}
+<main class="max-sm:px-4 px-8">
+    {{ $slot }}
+</main>
+
 
 </body>
 </html>

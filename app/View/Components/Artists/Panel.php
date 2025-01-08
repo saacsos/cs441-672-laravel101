@@ -1,22 +1,22 @@
 <?php
 
-namespace App\View\Components\Songs;
+namespace App\View\Components\Artists;
 
-use App\Models\Song;
+use App\Models\Artist;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Track extends Component
+class Panel extends Component
 {
     /**
      * Create a new component instance.
      */
     public function __construct(
-        public Song $song
+        public Artist $artist
     )
     {
-
+        //
     }
 
     /**
@@ -24,6 +24,6 @@ class Track extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.songs.track');
+        return view('components.artists.panel');
     }
 }

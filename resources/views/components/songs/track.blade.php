@@ -1,18 +1,22 @@
 <div class="flex mb-4 items-center justify-center">
-    <div class="w-1/3">
+    <div class="xl:w-[50vw] max-sm:w-[90vw] w-[60vw]">
         <div class="bg-white border-slate-300 dark:bg-slate-900 dark:border-slate-500 border-b rounded-t-xl p-4 pb-6 sm:p-10 sm:pb-8 lg:p-6 xl:p-10 xl:pb-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8  items-center">
             <div class="flex items-center space-x-4">
                 <img src="https://fastly.picsum.photos/id/12/3888/2592.jpg?hmac=z5QnvAxvFWTEDcrH9g34B5whrOlRpoyRMaX-wJpT9h0" alt="" width="88" height="88" class="flex-none rounded-lg bg-slate-100" loading="lazy" />
                 <div class="min-w-0 flex-auto space-y-1 font-semibold">
-                    <p class="text-cyan-500 dark:text-cyan-400 text-sm leading-6">
-                        <abbr title="Track">Track:</abbr> {{ $song['title'] }}
-                    </p>
-                    <h2 class="text-slate-500 dark:text-slate-400 text-sm leading-6 truncate">
-                        {{ $song['album'] }}
-                    </h2>
                     <p class="text-slate-900 dark:text-slate-50 text-lg">
-                        {{ $song['artist'] }}
+                        {{ $song->title }}
                     </p>
+
+                    <h2 class="text-slate-500 dark:text-slate-400 text-sm leading-6 truncate">
+                        {{ $song->duration }} seconds
+                    </h2>
+
+                    <p class="text-cyan-500 dark:text-cyan-400 text-sm leading-6">
+                        <abbr title="Artist">Artist:</abbr>
+                        <a href="{{ route('artists.show', ['artist' => $song->artist]) }}">{{ $song->artist->name }} </a>
+                    </p>
+
                 </div>
             </div>
             <div class="space-y-2">
@@ -25,8 +29,8 @@
                     </div>
                 </div>
                 <div class="flex justify-between text-sm leading-6 font-medium tabular-nums">
-                    <div class="text-cyan-500 dark:text-slate-100">{{ intval($song['duration']['minutes']/2) }}:{{ str_pad(intval($song['duration']['seconds']/2), 2, "0", STR_PAD_LEFT) }}</div>
-                    <div class="text-slate-500 dark:text-slate-400">{{ $song['duration']['minutes'] }}:{{ $song['duration']['seconds'] }}</div>
+                    <div class="text-cyan-500 dark:text-slate-100"></div>
+                    <div class="text-slate-500 dark:text-slate-400"></div>
                 </div>
             </div>
         </div>
