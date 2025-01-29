@@ -20,4 +20,8 @@ class PointByExpiredView extends Model
     public function scopeUnExpired($query) {
         return $query->where('expired_at', '>=', now());
     }
+
+    public function scopeOfUserId($query, $user_id) {
+        return $query->where('user_id', $user_id);
+    }
 }

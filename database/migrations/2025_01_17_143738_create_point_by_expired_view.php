@@ -12,6 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        DB::statement("DROP VIEW IF EXISTS point_by_expired_views");
         DB::statement("CREATE VIEW point_by_expired_views AS
               SELECT    user_id,
                         expired_at,
