@@ -1,0 +1,59 @@
+@accessToken = 1|Q6lo31FZSRw033Ss6ZLSnkFu8wSRWekUhM0NwaQS8bfaa3ed
+@adminAtk = 3|CnTWyB09UtwcgxSlL7wV6ehEBqNy3Q6j7ViDeTBJ542863bb
+@token = {{accessToken}}
+
+### GET request to /api/artists (Show Artists)
+GET {{ host }}/api/artists
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### GET request to /api/artists/{id} (Show Artist)
+GET http://localhost/api/artists/55
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### POST request to /api/artists (Store new artist)
+POST http://localhost/api/artists
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{ "name": "นูโว" }
+###
+
+### POST request to /api/artists (Store new artist with image)
+POST http://localhost/api/artists
+Accept: application/json
+Content-Type: multipart/form-data; boundary=boundary
+Authorization: Bearer {{token}}
+
+--boundary
+Content-Disposition: form-data; name="image"; filename="stamp.jpeg"
+
+// The 'stamp.jpeg' file will be uploaded
+< ./stamp.jpeg
+--boundary
+Content-Disposition: form-data; name="name"
+
+Apiwat Ueathavornsuk (อภิวัชร์ เอื้อถาวรสุข)
+--boundary
+###
+
+### PATCH request to /api/artists/{id}  (Update)
+PATCH http://localhost/api/artists/49
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{ "name" : "สาว สาว สาว" }
+###
+
+### DELETE request to /api/artists/{id}  (Delete artist by id)
+DELETE http://localhost/api/artists/55
+Accept: application/json
+Authorization: Bearer {{token}}
+###
